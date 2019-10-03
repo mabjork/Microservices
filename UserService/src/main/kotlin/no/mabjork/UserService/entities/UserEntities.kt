@@ -19,6 +19,15 @@ data class User (
         val roles: List<Role> = listOf(Role.USER)
 )
 
+data class AuthUser (
+        val username: String,
+        val password: String
+)
+
+data class AuthResponse (
+        val token: String
+)
+
 enum class Role (val role : String) {
     ADMIN("ADMIN"), USER("USER")
 }

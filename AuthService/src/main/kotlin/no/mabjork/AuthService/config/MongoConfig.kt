@@ -1,4 +1,4 @@
-package no.mabjork.UserService.config
+package no.mabjork.AuthService.config
 
 
 import com.mongodb.reactivestreams.client.MongoClient

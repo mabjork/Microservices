@@ -7,3 +7,10 @@ spring:
       database: mytestdb
       host: localhost
       port: 27017
+
+springbootwebfluxjjwt:
+  password:
+    encoder:
+      secret: mysecret
+      iteration: 33
+      keylength: 256

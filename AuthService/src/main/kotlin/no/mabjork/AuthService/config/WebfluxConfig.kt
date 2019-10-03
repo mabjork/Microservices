@@ -1,4 +1,4 @@
-package no.mabjork.UserService.config
+package no.mabjork.AuthService.config
 
 import org.springframework.context.annotation.Configuration
 import org.springframework.web.reactive.config.WebFluxConfigurer
