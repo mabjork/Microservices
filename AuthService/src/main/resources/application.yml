@@ -1,0 +1,11 @@
+jwt:
+  secret: thisisasectret
+eureka:
+  client:
+    enabled: false
+spring:
+  data:
+    mongo:
+      database: mytestdb
+      host: localhost
+      port: 27017
