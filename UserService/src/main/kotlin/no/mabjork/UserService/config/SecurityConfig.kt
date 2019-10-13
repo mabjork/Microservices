@@ -25,9 +25,11 @@ import reactor.core.publisher.Mono
         return http
                 .exceptionHandling()
                 .authenticationEntryPoint { swe, e ->
-                    Mono.fromRunnable({ swe.response.setStatusCode(HttpStatus.UNAUTHORIZED) }) }
+                    Mono.fromRunnable { swe.response.statusCode = HttpStatus.UNAUTHORIZED }
+                }
                 .accessDeniedHandler { swe, e ->
-                    Mono.fromRunnable({ swe.response.setStatusCode(HttpStatus.FORBIDDEN) }) }
+                    Mono.fromRunnable { swe.response.statusCode = HttpStatus.FORBIDDEN }
+                }
                 .and()
                 .csrf().disable()
                 .formLogin().disable()
@@ -36,6 +38,7 @@ import reactor.core.publisher.Mono
                 .authorizeExchange()
                 .pathMatchers(HttpMethod.OPTIONS).permitAll()
                 .pathMatchers("/login").permitAll()
+                .pathMatchers(HttpMethod.POST,"/users").permitAll()
                 .anyExchange().authenticated()
                 .and().build()
     }

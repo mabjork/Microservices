@@ -23,11 +23,11 @@ class JWTUtil(
     }
 
     fun getUsernameFromToken(token: String): String {
-        return getAllClaimsFromToken(token).getSubject()
+        return getAllClaimsFromToken(token).subject
     }
 
     fun getExpirationDateFromToken(token: String): Date {
-        return getAllClaimsFromToken(token).getExpiration()
+        return getAllClaimsFromToken(token).expiration
     }
 
     private fun isTokenExpired(token: String): Boolean {

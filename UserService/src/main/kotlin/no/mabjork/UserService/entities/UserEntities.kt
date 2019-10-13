@@ -14,9 +14,9 @@ data class User (
         val firstName: String = "",
         val lastName: String = "",
         @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-        val password: String = "",
+        val password: String,
         @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-        val roles: List<Role> = listOf(Role.USER)
+        val roles: List<Role> = listOf(Role.USER, Role.ADMIN)
 )
 
 data class AuthUser (

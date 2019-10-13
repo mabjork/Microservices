@@ -9,6 +9,9 @@ spring:
       port: 27017
 
 springbootwebfluxjjwt:
+  jjwt:
+    secret: secret
+    expiration: 100000
   password:
     encoder:
       secret: mysecret
