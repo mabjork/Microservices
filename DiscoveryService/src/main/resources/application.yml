@@ -1,6 +1,16 @@
+spring:
+  application:
+    name: DiscoveryService
+
 eureka:
+  instance:
+    appname: ${spring.application.name}
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+    eureka-server-connect-timeout-seconds: 5
+    enabled: true
+    fetch-registry: false
+    register-with-eureka: false
+
 server:
   port: 8761
+

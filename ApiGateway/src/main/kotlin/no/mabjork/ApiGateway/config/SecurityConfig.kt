@@ -1,4 +1,4 @@
-package no.mabjork.AuthService.config
+package no.mabjork.ApiGateway.config
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -30,7 +30,7 @@ class SecurityConfig(
                 .formLogin().disable()
                 .httpBasic().disable()
                 .authorizeExchange()
-                .pathMatchers(HttpMethod.POST,"/users").permitAll()
+                .pathMatchers("/api/*").permitAll()
                 .anyExchange().authenticated()
                 .and().build()
     }
