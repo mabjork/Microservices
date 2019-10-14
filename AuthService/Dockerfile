@@ -1,5 +1,5 @@
-FROM openjdk:11-jre-alpine
-WORKDIR /app
-EXPOSE 8081
-ADD ./build/libs/server.jar .
-CMD ["java", "-jar", "server.jar"]
+FROM openjdk:11
+VOLUME /tmp
+EXPOSE 8080
+ADD target/AuthService-0.0.1-SNAPSHOT.jar app.jar
+CMD ["java", "-jar", "app.jar"]
