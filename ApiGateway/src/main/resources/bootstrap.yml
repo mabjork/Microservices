@@ -1,0 +1,11 @@
+eureka:
+  client:
+    enabled: true
+
+spring:
+  application:
+    name: api-gateway-service
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: true
