@@ -1,4 +1,4 @@
-package no.mabjork.UserService.security
+package no.mabjork.AuthService.security
 
 import org.springframework.context.annotation.Configuration
 import org.springframework.web.reactive.config.CorsRegistry

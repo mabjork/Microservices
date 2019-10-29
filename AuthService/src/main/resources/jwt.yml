@@ -1,0 +1,3 @@
+jwt:
+  secret: dashfkjsdlhfjskdhfsdl
+  expiration: 1000000

@@ -8,3 +8,13 @@ data class Session(
         @Id val id: Int? = null,
         val body: String
 )
+
+data class AuthUser(
+        val username: String,
+        val password: String
+)
+
+data class AuthResponse (
+        val token: String?
+)
+
