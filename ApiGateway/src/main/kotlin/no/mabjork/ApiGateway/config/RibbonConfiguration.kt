@@ -1,22 +1,30 @@
 package no.mabjork.ApiGateway.config
 
-import com.netflix.client.config.IClientConfig
-import com.netflix.loadbalancer.*
+import com.netflix.loadbalancer.WeightedResponseTimeRule
+import com.netflix.loadbalancer.IRule
+import com.netflix.loadbalancer.NoOpPing
+import com.netflix.loadbalancer.IPing
 import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.Configuration
 
 
-@Configuration
-class RibbonConfiguration{
+class RibbonConfiguration {
+
+    companion object {
+
+    }
 
     @Bean
     fun ribbonPing(): IPing {
-        return PingUrl()
+
+        return NoOpPing()
+
     }
 
     @Bean
     fun ribbonRule(): IRule {
-        return AvailabilityFilteringRule()
+
+        return WeightedResponseTimeRule()
+
     }
 
 }
