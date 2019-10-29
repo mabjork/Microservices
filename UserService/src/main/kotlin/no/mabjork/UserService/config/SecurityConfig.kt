@@ -1,10 +1,8 @@
 package no.mabjork.UserService.config
 
-import no.mabjork.UserService.security.AuthenticationManager
 import no.mabjork.UserService.services.UserService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.http.HttpMethod
 import org.springframework.http.HttpStatus
 import org.springframework.security.config.annotation.method.configuration.EnableReactiveMethodSecurity
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity
@@ -17,7 +15,6 @@ import reactor.core.publisher.Mono
 @EnableWebFluxSecurity
 @EnableReactiveMethodSecurity
  class SecurityConfig(
-        val authenticationManager: AuthenticationManager,
         val userService: UserService
 ) {
     @Bean
@@ -34,11 +31,9 @@ import reactor.core.publisher.Mono
                 .csrf().disable()
                 .formLogin().disable()
                 .httpBasic().disable()
-                .authenticationManager(authenticationManager)
                 .authorizeExchange()
-                .pathMatchers(HttpMethod.OPTIONS).permitAll()
-                .pathMatchers("/login").permitAll()
-                .pathMatchers(HttpMethod.POST,"/users").permitAll()
+                .pathMatchers("/user/*").permitAll()
+                .pathMatchers("/user/auth/*").permitAll()
                 .anyExchange().authenticated()
                 .and().build()
     }

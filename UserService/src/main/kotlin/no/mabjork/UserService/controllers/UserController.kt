@@ -10,12 +10,12 @@ import reactor.core.publisher.Mono
 import javax.validation.Valid
 
 
-@RestController
+@RestController("/user")
 class UserController(
         private val userRepository: UserRepository,
         private val passwordEncoder: PasswordEncoder) {
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/{id}")
     fun getUser(@PathVariable id: String): Mono<ResponseEntity<User>> =
             userRepository
                     .findById(id)
@@ -23,7 +23,7 @@ class UserController(
                     .defaultIfEmpty(ResponseEntity.badRequest().build())
 
 
-    @PostMapping("/users")
+    @PostMapping("/")
     fun createUser(@Valid @RequestBody user: User): Mono<ResponseEntity<User>> =
             userRepository.findByName(user.username)
                     .map { ResponseEntity<User>(HttpStatus.BAD_REQUEST) }
@@ -40,7 +40,7 @@ class UserController(
                                     .map { ResponseEntity.ok(it) }
                     )
 
-    @PutMapping("/users/{id}")
+    @PutMapping("/{id}")
     fun updateUser(@PathVariable id: String, @Valid @RequestBody user: User): Mono<ResponseEntity<User>> =
             userRepository
                     .findById(id).flatMap { existingUser ->
@@ -59,7 +59,7 @@ class UserController(
                     .defaultIfEmpty(ResponseEntity.badRequest().build())
 
 
-    @DeleteMapping("/users/{id}")
+    @DeleteMapping("/{id}")
     fun deleteUser(@PathVariable id: String) : Mono<ResponseEntity<Void>> =
             userRepository
                     .findById(id)

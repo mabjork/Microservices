@@ -1,26 +1,22 @@
 package no.mabjork.UserService.controllers
 
 import no.mabjork.UserService.entities.AuthResponse
-import no.mabjork.UserService.entities.AuthUser
-import no.mabjork.UserService.entities.User
 import no.mabjork.UserService.repositories.UserRepository
-import no.mabjork.UserService.security.JWTUtil
-import org.springframework.http.HttpStatus
+import no.mabjork.UserService.entities.AuthRequest
 import org.springframework.http.ResponseEntity
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.web.bind.annotation.*
 import reactor.core.publisher.Mono
 
-@RestController
+@RestController("/user/auth")
 class AuthController(
         private val userRepository: UserRepository,
-        private val passwordEncoder: PasswordEncoder,
-        private val jwtUtil: JWTUtil
+        private val passwordEncoder: PasswordEncoder
 ) {
 
 
-    @PostMapping("/login")
-    fun authenticateUser(@RequestBody user : AuthUser) : Mono<ResponseEntity<AuthResponse>> =
+    @PostMapping("/")
+    fun authenticateUser(@RequestBody user : AuthRequest) : Mono<ResponseEntity<AuthResponse>> =
             userRepository
                     .findByName(user.username)
                     .flatMap {
@@ -31,7 +27,7 @@ class AuthController(
                             Mono.empty()
                         }
                     }
-                    .map { ResponseEntity.ok(AuthResponse(jwtUtil.generateToken(it))) }
+                    .map { ResponseEntity.ok(AuthResponse(it.username, it.roles)) }
                     .defaultIfEmpty(ResponseEntity.badRequest().build())
 
 }

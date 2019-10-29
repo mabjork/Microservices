@@ -1,12 +1,22 @@
 eureka:
   client:
-    enabled: false
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
+
 spring:
+  application:
+    name: user-service
   data:
     mongo:
       database: mytestdb
       host: localhost
       port: 27017
+
+server:
+  port:
+    8080
 
 springbootwebfluxjjwt:
   jjwt:
