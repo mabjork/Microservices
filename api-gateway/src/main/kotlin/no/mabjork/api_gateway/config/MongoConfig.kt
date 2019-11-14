@@ -1,4 +1,4 @@
-package no.mabjork.UserService.config
+package no.mabjork.api_gateway.config
 
 
 import com.mongodb.reactivestreams.client.MongoClient
@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.ReactiveMongoTemplate
 import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRepositories
 
 @Configuration
-@EnableReactiveMongoRepositories(basePackages = [ "no.mabjork.UserService.repositories" ])
+@EnableReactiveMongoRepositories(basePackages = [ "no.mabjork.ApiGateway.repositories" ])
 class MongoConfig(
         @Value("\${spring.data.mongo.host}") private val host: String,
         @Value("\${spring.data.mongo.port}") private val port: Int,

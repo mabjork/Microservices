@@ -1,0 +1,11 @@
+authService:
+  publicKey: |
+    -----BEGIN PUBLIC KEY-----
+    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp84G8LAmDLY38bA61aJk
+    piLrm5qZV4UrHR4RkJBmtEIqu8iVfL3sk74aoYCXNDC5mROEHgv1apB+Hy65r3yr
+    R5RKYbU5dqJx1LahxUEaqi2SOMiQO5y+K2nVMaG3x3DVBzkyX7+zCN4S4uCdImr3
+    fqUNtwbKvKMZAdsyW4YB0wCf6O/50TgD1GTfEEH2SO3+DqUiAFYdXzugWwFn7BwW
+    bibO8utzEsWnhUe1CdD3t7zCeSODdk/7rGbXU4nrvcj1uqNuZBaN/RkF5kCTT/CM
+    l7jbLQgO/Ijb058+AksRjeQJsdWLeMHHeUKhjkxNWb6pbrJTKfl9AjwPeDW/2hUf
+    YwIDAQAB
+    -----END PUBLIC KEY-----

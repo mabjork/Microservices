@@ -1,4 +1,4 @@
-package no.mabjork.ApiGateway.config
+package no.mabjork.api_gateway.config
 
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced
@@ -15,8 +15,4 @@ class WebFluxConfig {
     fun client(builder : WebClient.Builder): WebClient {
         return builder.build()
     }
-
 }
-
-
-

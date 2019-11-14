@@ -1,4 +1,4 @@
-package no.mabjork.ApiGateway.config
+package no.mabjork.api_gateway.config
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.KotlinModule

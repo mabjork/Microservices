@@ -1,4 +1,4 @@
-package no.mabjork.ApiGateway.controllers
+package no.mabjork.api_gateway.controllers
 
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController

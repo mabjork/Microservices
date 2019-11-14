@@ -1,13 +1,11 @@
-package no.mabjork.ApiGateway.service
+package no.mabjork.api_gateway.service
 
-import no.mabjork.ApiGateway.models.AuthUser
+import no.mabjork.api_gateway.models.AuthUser
 import org.springframework.beans.factory.annotation.Qualifier
-import org.springframework.cloud.client.loadbalancer.LoadBalancerClient
 import org.springframework.cloud.netflix.eureka.EurekaDiscoveryClient
 import org.springframework.http.HttpHeaders
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Service
-import org.springframework.web.reactive.function.BodyInserter
 import org.springframework.web.reactive.function.BodyInserters
 import org.springframework.web.reactive.function.client.WebClient
 import reactor.core.publisher.Mono
