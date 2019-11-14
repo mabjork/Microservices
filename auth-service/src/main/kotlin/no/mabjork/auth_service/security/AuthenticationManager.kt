@@ -1,8 +1,8 @@
-package no.mabjork.AuthService.security
+package no.mabjork.auth_service.security
 
 
-import no.mabjork.AuthService.entities.Role
-import no.mabjork.AuthService.utils.JWTUtil
+import no.mabjork.auth_service.entities.Role
+import no.mabjork.auth_service.utils.JWTUtil
 import org.springframework.security.authentication.ReactiveAuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.Authentication
@@ -35,6 +35,4 @@ class AuthenticationManager(
                                             }.map { it as Authentication }
                                 }.defaultIfEmpty(UsernamePasswordAuthenticationToken(null,null,null) as Authentication)
                     }.defaultIfEmpty(UsernamePasswordAuthenticationToken(null,null,null) as Authentication)
-
-
 }

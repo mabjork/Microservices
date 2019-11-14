@@ -1,4 +1,4 @@
-package no.mabjork.AuthService
+package no.mabjork.auth_service
 
 
 

@@ -1,4 +1,4 @@
-package no.mabjork.AuthService.entities
+package no.mabjork.auth_service.entities
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document

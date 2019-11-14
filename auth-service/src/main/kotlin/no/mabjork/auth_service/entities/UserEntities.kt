@@ -1,8 +1,9 @@
-package no.mabjork.ApiGateway.models
+package no.mabjork.auth_service.entities
 
-data class AuthUser (
+
+data class User (
         val username: String,
-        val password: String
+        val roles: List<Role>
 )
 
 enum class Role (val role : String) {

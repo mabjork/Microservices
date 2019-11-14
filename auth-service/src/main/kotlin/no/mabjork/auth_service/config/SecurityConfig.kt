@@ -1,4 +1,4 @@
-package no.mabjork.AuthService.config
+package no.mabjork.auth_service.config
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -34,6 +34,7 @@ class SecurityConfig(
                 .authenticationManager(authenticationManager)
                 .authorizeExchange()
                 .pathMatchers(HttpMethod.POST,"/auth").permitAll()
+                .pathMatchers(HttpMethod.POST,"/auth/token").permitAll()
                 .anyExchange().authenticated()
                 .and().build()
     }
