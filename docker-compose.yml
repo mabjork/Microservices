@@ -21,7 +21,7 @@ services:
   discovery_service:
     build:
       context: ./DiscoveryService
-      dockerfile: ./Dockerfile
+      dockerfile: ./Dockerfileª
     image: discovery_service
     container_name: discoveryService
     ports:

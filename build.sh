@@ -1,5 +1,3 @@
-
-
 for i in "$@"
 do
   if [ "$i" = "-c" ]
@@ -21,8 +19,8 @@ while read service; do
     arguments=$arguments" -DskipTest"
   fi
 
-  cd ./$service
-  mvn package $arguments
+  cd ./"$service" || exit
+  mvn package "$arguments"
   cd ..
 
 done < services

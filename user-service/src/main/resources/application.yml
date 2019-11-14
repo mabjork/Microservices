@@ -1,0 +1,29 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
+
+spring:
+  application:
+    name: user-service
+  data:
+    mongo:
+      database: mytestdb
+      host: localhost
+      port: 27017
+
+server:
+  port:
+    8082
+
+springbootwebfluxjjwt:
+  jjwt:
+    secret: secret
+    expiration: 100000
+  password:
+    encoder:
+      secret: mysecret
+      iteration: 33
+      keylength: 256
