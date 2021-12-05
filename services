@@ -1,4 +1,4 @@
-ApiGateway
-AuthService
-DiscoveryService
-UserService
+api-gateway
+auth-service
+discovery-service
+user-service

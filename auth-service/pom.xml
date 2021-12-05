@@ -9,7 +9,7 @@
 		<relativePath/>
 	</parent>
 	<groupId>no.mabjork</groupId>
-	<artifactId>auth-service</artifactId>
+	<artifactId>auth_service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>AuthService</name>
 

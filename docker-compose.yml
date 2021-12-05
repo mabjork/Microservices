@@ -8,39 +8,69 @@ services:
       - MONGO_LOG_DIR=/dev/null
     volumes:
       - ./data/db:/data/db
+    networks:
+      - microservices_network
     ports:
       - 27017:27017
   user_service:
     build:
-      context: ./UserService
+      context: ./user-service
       dockerfile: ./Dockerfile
     image: user_service
     container_name: userService
+    environment:
+      - EUREKA_URI=http://discovery_service:8761/eureka
+    networks:
+      - microservices_network
     ports:
       - "8081:8080"
   discovery_service:
     build:
-      context: ./DiscoveryService
-      dockerfile: ./Dockerfileª
+      context: ./discovery-service
+      dockerfile: ./Dockerfile
     image: discovery_service
     container_name: discoveryService
+    networks:
+      - microservices_network
     ports:
-      - "8082:8080"
+      - "8761:8761"
   auth_service:
     build:
-      context: ./AuthService
+      context: ./auth-service
       dockerfile: ./Dockerfile
     image: auth_service
     container_name: authService
+    environment:
+      - EUREKA_URI=http://discovery_service:8761/eureka
+    networks:
+      - microservices_network
     ports:
       - "8083:8080"
   api_gateway:
     build:
-      context: ./ApiGateway
+      context: ./api-gateway
       dockerfile: ./Dockerfile
     image: api_gateway
     container_name: apiGateway
+    environment:
+      - EUREKA_URI=http://discovery_service:8761/eureka
+    networks:
+      - microservices_network
     ports:
       - "8084:8080"
+  zipkin-service:
+    image: openzipkin/zipkin
+    container_name: "zipkin-server"
+    environment:
+      - EUREKA_URI=http://discovery_service:8761/eureka
+    networks:
+      - microservices_network
+    ports:
+      - "9411:9411"
+
+networks:
+  microservices_network:
+    driver: bridge
+
 
 

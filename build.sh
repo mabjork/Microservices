@@ -19,7 +19,7 @@ while read service; do
     arguments=$arguments" -DskipTest"
   fi
 
-  cd ./"$service" || exit
+  cd ./$service
   mvn package "$arguments"
   cd ..
 
